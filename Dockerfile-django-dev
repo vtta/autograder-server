@@ -1,5 +1,9 @@
 FROM python:3.8
 
+ENV ftp_proxy http://proxy.cse.cuhk.edu.hk:8000
+ENV http_proxy http://proxy.cse.cuhk.edu.hk:8000
+ENV https_proxy http://proxy.cse.cuhk.edu.hk:8000
+
 RUN pip install pip-tools
 
 COPY ./requirements.txt .
