@@ -17,11 +17,17 @@ Including another URLconf
 from django.contrib.staticfiles import views
 from django.conf import settings
 from django.conf.urls import include, url
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
     url(r'^api/', include('autograder.core.urls')),
     url(r'^api/', include('autograder.rest_api.urls')),
     url(r'^api/', include('autograder.handgrading.urls')),
+    url('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    url('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 if settings.DEBUG:

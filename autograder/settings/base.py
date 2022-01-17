@@ -115,7 +115,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        OAUTH2_AUTH_CLASSES[OAUTH2_PROVIDER],
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # OAUTH2_AUTH_CLASSES[OAUTH2_PROVIDER],
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -209,6 +210,7 @@ TEMPLATES = [
 
 INSTALLED_APPS += [
     'django.contrib.staticfiles',
+    'rest_framework_simplejwt',
 ]
 
 
