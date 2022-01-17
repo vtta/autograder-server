@@ -8,6 +8,10 @@ from django.urls.conf import re_path
 
 from autograder.rest_api import views
 
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 def api_docs_view(request: HttpRequest) -> HttpResponse:
     return render(request, 'swagger_ui.html')
@@ -274,4 +278,7 @@ urlpatterns = [
     path('submissions/<int:pk>/mutation_test_suite_results/<int:result_pk>/output_size/',
          views.MutationTestSuiteOutputSizeView.as_view(),
          name='mutation-suite-result-output-size'),
+
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
