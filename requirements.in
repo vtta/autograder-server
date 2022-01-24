@@ -4,6 +4,7 @@ django-extensions
 django-redis
 django-timezone-field
 djangorestframework
+djangorestframework-simplejwt
 openapi
 python-gnupg
 uritemplate
